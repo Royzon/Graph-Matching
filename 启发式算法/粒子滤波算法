@@ -1,0 +1,24 @@
+Graph Matching via Sequential Monte Carlo
+#https://link.springer.com/content/pdf/10.1007/978-3-642-33712-3_45.pdf
+背景介绍（粒子滤波算法/Sequential Monte Carlo）
+在高维空间中，依据原概率分布的采样是很复杂的，因此借助于蒙特卡洛思想，利用近似采样来代替原采样
+Importance Sampling：用提议分布代替目标分布时，会涉及到一个权重，也就是目标分布与提议分布的比值，这就是重采样
+Sequential Importance Resampling：由于重采样会引起权重退化的问题，因此引入了SIR算法，该算法将样本权重作为概率，对当前样本进行重采样，得到的新样本权重相同
+
+
+算法
+SMC Graph Matching
+input:affinity matrix W
+output: assignment vector x
+# 初始化
+从初始分布中采样N个，初始分布正比于(x1Wx1)
+# SMC 循环
+当可采样时：
+根据转移矩阵采样N个样本，转移矩阵正比于(e1Wxt-1)
+根据权重在N个样本中重新采样N个样本(把当前权重看成概率)，采样后每个样本权重一样
+粒子更新：重新采样，将当前匹配中的最差匹配重新采样，这里是为了修正错误的匹配
+end
+选择最高匹配分数的x
+
+优点：速度快，鲁棒性强
+缺点：
