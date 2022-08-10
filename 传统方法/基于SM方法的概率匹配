@@ -1,0 +1,17 @@
+A Probabilistic Approach to Spectral Graph Matching
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6152128
+
+文章思路：
+  1.首先从概率的角度解释了SM方法的合理性
+  2.归一化能让小的概率更小，大的概率更大，归一化策略：行归一化（图1中无异常点），列归一化（图二中无异常点），双随机化，不归一化（两图中都有异常点）
+算法流程：
+1.相似度矩阵A作为概率矩阵P(cii|cjj),p(cii) = 随机概率矩阵
+2.for i in range(0,iterNo):
+  qt = Pp
+  pt+1 = 对qt归一化
+  Pt+1= Pt*pt+1/pt
+  若(pt+1-pt)^2 < α则结束循环
+3.离散化pt+1
+时间复杂度：与SM算法和GA算法相同
+总结：前面就是一个幂迭代的过程，只不过这个幂迭代的解释是概率，将相似度矩阵元素看成匹配的概率，值越大表示越匹配，越小表示越不匹配
+  
