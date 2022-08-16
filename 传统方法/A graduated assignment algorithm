@@ -1,2 +1,6 @@
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=491619
+
 使用连续化的方法将离散问题转化成连续问题以减少陷入局部最优解的机会
 求N个数中的最大数时，可以采用连续化的思想，通过softmax函数来求得最大数
+求解二部图匹配可以使用softassign的思想
+将图匹配问题转换成二部图匹配问题
