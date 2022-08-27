@@ -7,3 +7,8 @@ https://openaccess.thecvf.com/content_cvpr_2018/papers/Zanfir_Deep_Learning_of_C
   3.双随机化得到满足条件的匹配矩阵
   4.构造损失函数。首先，使用数据集的标注信息，可以计算真实的偏移向量。随后，根据投票步骤获得的可能性矩阵，通过加权求和，可以得到模型预测的偏移向量。
 论文主要贡献和缺点：创造性的将深度学习应用到图匹配问题中，但是反向梯度计算复杂，计算量偏大，并且深度学习框架中采用的传统方法比较落后，在求解匹配矩阵的过程中，没有充分利用到限定条件。
+
+
+基于此工作的另一篇文章
+Learning Combinatorial Embedding Networks for Deep Graph Matching
+https://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_Learning_Combinatorial_Embedding_Networks_for_Deep_Graph_Matching_ICCV_2019_paper.pdf
