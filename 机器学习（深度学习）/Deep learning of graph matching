@@ -12,3 +12,4 @@ https://openaccess.thecvf.com/content_cvpr_2018/papers/Zanfir_Deep_Learning_of_C
 基于此工作的另一篇文章
 Learning Combinatorial Embedding Networks for Deep Graph Matching
 https://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_Learning_Combinatorial_Embedding_Networks_for_Deep_Graph_Matching_ICCV_2019_paper.pdf
+大多数文章中求相似度矩阵利用的都是带欧式距离的高斯核函数
