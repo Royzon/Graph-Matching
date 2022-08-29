@@ -12,4 +12,34 @@ https://openaccess.thecvf.com/content_cvpr_2018/papers/Zanfir_Deep_Learning_of_C
 基于此工作的另一篇文章
 Learning Combinatorial Embedding Networks for Deep Graph Matching
 https://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_Learning_Combinatorial_Embedding_Networks_for_Deep_Graph_Matching_ICCV_2019_paper.pdf
-大多数文章中求相似度矩阵利用的都是带欧式距离的高斯核函数
+Introduction
+大多数文章中求相似度矩阵使用的都是预定义的相似度函数，一般是带欧式距离的高斯核函数。作者认为这样预定义的相似度函数对于真实世界中的任务缺乏灵活性，因为相似度的衡量标准可以是任意的，并且
+需要模型能够作为近似的衡量标准。这种挑战在有噪音和异常节点的情况下更为严峻，一个差的相似度函数可能不会得到正确的匹配关系。因此需要一个有效的相似度模型
+本文的主要贡献：
+1）作者提出基于排列组合的损失来优化网络，而不是前一篇文章提出的基于偏移的损失，作者这样做是基于图匹配问题的组合性质
+2）利用图卷积网络将点特征和结构特征嵌入到点向量中
+3）消融实验验证了神经网络中各个模块的作用效果
+Proposed Approach
+PIA-GM,PCA-GM由一个CNN Image feature extractor,graph embedding,affinity metric function,permutation prediction
+Feature Extraction
+Intra-graph node embedding
+利用图结构信息的方法可以提高匹配鲁棒性，这里利用GCN将邻居节点信息传递到当前节点中， 其中需要传递邻边和邻节点信息到当前节点，这里还要用到图的邻接矩阵
+Cross-graph node embedding 这里有疑问
+这里利用的是跟Intra-graph node embedding相同的方法，只不过这里的每个节点的特征是利用两图中相似节点来构建的，利用浅嵌入层来构建双随机矩阵S（将问题转换成匹配问题，利用Sinkorn算法得到），
+代替上文中的邻接矩阵
+Affinity Metric Learning
+通过前文得到的节点包含了图的结构信息，因此匹配问题变成了点与点的匹配问题，通过公式计算得到点相似矩阵
+Sinkhorn Layer for Linear Assignment
+利用Sinkorn算法得到双随机矩阵，训练阶段时的双随机矩阵看成是预测结果，后续测试可以利用匈牙利算法得到离散解
+Permutation Cross-Entropy Loss
+交叉熵作为损失函数
+Further Discussion
+graph embedding不仅将图的高阶信息存放在节点中，而且它将原问题降阶成NxN的问题
+Experiments
+效果不错，还做了泛化实验来验证各个组件的功能
+
+
+
+
+
+
