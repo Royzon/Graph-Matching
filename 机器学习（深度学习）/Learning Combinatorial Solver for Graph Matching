@@ -1,1 +1,17 @@
-提出了不同的深度学习网络
+https://openaccess.thecvf.com/content_CVPR_2020/papers/Wang_Learning_Combinatorial_Solver_for_Graph_Matching_CVPR_2020_paper.pdf
+首先是将两个图合并成一个图，再利用卷积神经网络学习邻接点和边的信息，找到最终的匹配结果
+The Proposed Method
+神经网络构成
+1.Assignment Graph Generation:这里的构造过程与RRWM相同
+2.Encoder/Decoder：Encoder 和 Decoder 位于神经网络的两端，通过编码将图结构转化成神经网络的输入，通过解码将神经网络的输出转化成最终的匹配矩阵
+3.Convolution Module：框架的核心，通过多层点卷积和边卷积收集邻居的信息
+4.Loss Computation：利用预测标签与真实标签的差值和一对一的限定条件来计算损失函数
+本文中的图的生成不在优化范围内
+Encoder and Decoder：Encoder是一个多层感知机，将节点属性和边属性更新到另一个维度空间，从而更新了赋值图，Decoder只利用节点属性
+The Convolution Module：包含边卷积层和点卷积层
+  边卷积层：卷积构成边的节点信息来更新边信息，首先是点向量元素相乘，然后乘以参数矩阵得到新的边信息，再将新的边属性与原属性拼接，通过MLP得到输出，这里所有的边共用一个变卷积层
+  点卷积层：卷积与点相关的边信息来更新节点信息，首先是相关边属性求和，其次用MLP更新节点信息
+  卷积层数主要取决于赋值图的大小，一般设为10个
+Loss function：一个是真实匹配矩阵与模型匹配矩阵的误差，一个是一对一的限定条件
+
+Experiments
