@@ -1,0 +1,14 @@
+Reweighted Random Walks for Graph Matching
+https://link.springer.com/content/pdf/10.1007/978-3-642-15555-0_36.pdf
+
+Affinity-Preserving Random Walks
+根据两图生成一个关联图，图中节点是匹配的点，边是匹配的边，边的权重为相似度除以最大权值和，增加一个吸收节点，用来保证每行权值和为1，构成的新矩阵为转移矩阵
+Reweighted Random Walks
+将限定条件（一对一）应用到下一个状态的求解中
+1.Inflation:放大匹配点的概率，缩小不匹配点的概率
+2.双随机化，双随机化利用的是松弛的限定条件，将每行每列的结果限定到和为1
+此外，为了更好的利用一一限定条件，将冲突的点匹配值置为0
+总结：该方法在没有reweighted random Function时，类似于SM算法，但是加上以后，类似于优化了SM算法，会得到更好的表现
+The comparison reveals that the matching accuracy in the challenging situations largely depends on the effective exploitation of the matching constraints
+限定条件的利用对于问题求解的精度很有帮助
+本文在随机游走的过程中，通过双随机算法利用了限定条件，在SM算法的基础上提高了求解精度
