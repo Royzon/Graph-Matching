@@ -1,0 +1,14 @@
+先将此论文归类为机器学习里
+
+GM via Determinant Regularization
+引入正则项到目标函数
+Geometric Property of Gradients
+行列式绝对值正则项比L2正则项以及交叉熵正则项效果要好，它可以更有效的将目标结果推到离散解上
+Furthermore, it is a fact that |det(X)| > 0 when X is strictly diagonal dominant (i.e. there exist an i for each j, such that |Xij |≥ P k6=i Xkj ). 
+Thus for any (not necessarily doubly) stochastic matrix Y, strictly diagonal dominance implies there exist an i such that Yij > 0.5 for any j. As
+for doubly stochastic matrix, there will be only one element larger than 0.5 in each column/row, which means there’s no ambiguity. In this case, 
+there exists a permutation P such that PXP⊤ is diagonally dominant. We call such X doubly diagonally dominant. Conversely, if for any continuous 
+solution det(X) = 0, X cannot be doubly diagonally dominance, which implies ambiguity and is not of our interest. In general, larger determinant 
+value of doubly stochastic solution implies less ambiguity, and a absolute determinant larger than 0 implies strong discriminativity to some 
+extent (Xij > 0.5 exists)
+这段话解释了为什么要
