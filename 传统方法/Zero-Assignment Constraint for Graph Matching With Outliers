@@ -1,0 +1,14 @@
+https://openaccess.thecvf.com/content_CVPR_2020/papers/Wang_Zero-Assignment_Constraint_for_Graph_Matching_With_Outliers_CVPR_2020_paper.pdf
+Graph matching with outliers
+点一致性：匹配点有最小的不相似度
+边一致性：匹配边有最小的不相似度
+边不相似性：内点与外点的不相似性大于所有内点间的不相似性
+点不相似性：内边与外边的不相似性大于所有内边间的不相似性
+Objective function with sufficient condition
+充分条件：内边的权重大于外边的权重，内边的属性标量大于外边的属性标量，这告诉我们应该如何计算权重和属性值作为相似性的度量
+Outlier-robust graph matching algorithm（这里没看懂）
+对限定条件进行松弛，将离散解空间放宽到连续解空间，再利用Frank-Wolfe method对问题进行求解
+ Outlier identification and removal
+ 通过上述方法得到概率矩阵P之后，再按行求和，列求和得到每个节点的value，然后将两图中点的value作为坐标，通过聚类算法进行分类，得到两类节点(inlier,outlier),当inlier少于k时，
+ 从outlier中取部分节点并入inlier,当inlier大于k时，取多余的节点为outlier。
+值得借鉴的点：在损失函数里加上权重衰退，可以防止模型过拟合
